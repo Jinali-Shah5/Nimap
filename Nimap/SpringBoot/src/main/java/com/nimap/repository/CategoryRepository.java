@@ -10,5 +10,5 @@ import com.nimap.entity.Category;
 
 public interface CategoryRepository extends CrudRepository<Category, Integer>, PagingAndSortingRepository<Category,Integer>{
 
-	List<Category> findAllById(double categoryId, Pageable pageable);
+	List<Category> findAll(Pageable pageable);
 }
