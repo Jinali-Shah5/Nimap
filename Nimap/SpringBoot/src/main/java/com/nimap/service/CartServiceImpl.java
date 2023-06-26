@@ -26,9 +26,9 @@ public class CartServiceImpl implements CartService{
 	@Autowired
 	private CategoryRepository categoryRepository;
 	@Override
-	public List<ProductDTO> getAllProducts() throws ApplicationException 
+	public List<ProductDTO> getAllProducts(Pageable pageable) throws ApplicationException 
 	{
-		Iterable<Product> i = productRepository.findAll();
+		Iterable<Product> i = productRepository.findAll(pageable);
 		List<ProductDTO> list1 = new ArrayList<ProductDTO>();
 		i.forEach(list2 -> {
 			ProductDTO prod = new ProductDTO();
@@ -81,10 +81,10 @@ public class CartServiceImpl implements CartService{
 		return product2;
 	}
 @Override
-	public List<CategoryDTO> getAllCategories() throws ApplicationException
+	public List<CategoryDTO> getAllCategories(Pageable pageable) throws ApplicationException
 	{
 		
-		Iterable<Category> i = categoryRepository.findAll();
+		Iterable<Category> i = categoryRepository.findAll(pageable);
 		List<CategoryDTO> list1 = new ArrayList<CategoryDTO>();
 		i.forEach(list2 -> {
 			CategoryDTO cate = new CategoryDTO();
