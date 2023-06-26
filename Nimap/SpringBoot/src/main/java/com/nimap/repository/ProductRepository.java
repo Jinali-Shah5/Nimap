@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.nimap.entity.Product;
 
-public interface ProductRepository extends CrudRepository<Product, Integer> {
+public interface ProductRepository extends CrudRepository<Product, Integer>,PagingAndSortingRepository<Product,Integer> {
 
-	public List<Product> findByCategoryName(String categoryName);
+	public List<Product> findAll(Pageable pageable);
 }
